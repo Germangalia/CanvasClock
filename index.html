@@ -27,12 +27,22 @@
                 };
     })();
 
-    (function drawClock() {
-        drawFace(ctx, radius);
-        drawNumbers(ctx, radius);
-        drawTime(ctx, radius);
-        requestAnimFrame(drawClock);
-        render();
+//    (function drawClock() {
+//        drawFace(ctx, radius);
+//        drawNumbers(ctx, radius);
+//        drawTime(ctx, radius);
+//        requestAnimFrame(drawClock);
+//        render();
+//    })();
+
+    var fps = 1000;
+    (function draw() {
+        setTimeout(function() {
+            requestAnimationFrame(draw);
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        }, 1000 / fps);
     })();
 
     function drawFace(ctx, radius) {
